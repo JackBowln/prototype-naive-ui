@@ -9,12 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "echarts": "^5.3.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "vue": "^3.2.25",
+    "vue-echarts": "^6.0.2",
+    "vue-router": "^4.0.0-0",
+    "vue-tailwind": "^2.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
     "@vue/cli-plugin-router": "~4.5.13",
     "@vue/cli-plugin-unit-jest": "~4.5.13",
+    "@vue/cli-service": "^5.0.4",
     "@vue/test-utils": "^2.0.0-rc.17",
     "autoprefixer": "^10.4.4",
     "naive-ui": "^2.26.4",

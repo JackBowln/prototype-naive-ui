@@ -1,9 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    <h4 class="first-letter:uppercase">{{ Card.title }}</h4>
+  </div>
 </template>
-<script lang="ts">
-  import { defineComponent } from "vue"
-  export default defineComponent({
 
-  })
+<script setup lang="ts">
+  import type { CardProps } from "../types/index"
+
+  defineProps<CardProps>()
+  // console.log(Card)
 </script>
