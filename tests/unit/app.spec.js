@@ -1,47 +1,35 @@
-import { mount } from '@vue/test-utils'
+import { mount } from "@vue/test-utils"
 import App from "@/App.vue"
-describe("App", () => {
-  // Inspect the raw component options
-  it("has data", () => {
-    expect(typeof App.data).toBe("function");
-  });
-});
+const { createTransformer } = require("ts-jest")
+const tr = createTransformer()
+const configSet = tr.configsFor(config)
+const tsConfig = configSet.typescript || configSet.parsedTsConfig
+// describe("App", () => {
+//   // Inspect the raw component options
+//   it("has data", () => {
+//     expect(wrapper).toBe("function");
+//   });
+// });
 
 describe("Mounted App", () => {
-  const wrapper = mount(App);
+    const wrapper = mount(App)
 
-  test("is a Vue instance", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
+    it("should have text", () => {
+        expect(wrapper.text()).toBeGreaterThan(0)
+    })
 
-  it("renders the correct markup", () => {
-    expect(wrapper.html()).toContain(
-      "<p>What is the sum of the two numbers?</p>"
-    );
-  });
+    // test("is a Vue instance", () => {
+    //   expect(wrapper.isVueInstance()).toBeTruthy();
+    // });
 
-  // it's also easy to check for the existence of elements
-  it("has a buttons", () => {
-    expect(wrapper.contains("button")).toBe(true);
-  });
+    // it("renders the correct markup", () => {
+    //   expect(wrapper.html()).toContain(
+    //     "<p>What is the sum of the two numbers?</p>"
+    //   );
+    // });
 
-  it("renders correctly with different data", async () => {
-    wrapper.setData({ x1: 5, x2: 10 });
-    await wrapper.vm.$nextTick();
-    expect(wrapper.text()).toContain("10");
-  });
-
-  it("button click without correct sum", () => {
-    expect(wrapper.vm.message).toBe("");
-    const button = wrapper.find("button");
-    button.trigger("click");
-    expect(wrapper.vm.message).toBe("TRY AGAIN");
-  });
-
-  it("button click with correct sum", () => {
-    wrapper.setData({ guess: "15" });
-    const button = wrapper.find("button");
-    button.trigger("click");
-    expect(wrapper.vm.message).toBe("SUCCESS!");
-  });
-});
+    // it's also easy to check for the existence of elements
+    // it("has a buttons", () => {
+    //   expect(wrapper.contains("button")).toBe(true);
+    // });
+})
