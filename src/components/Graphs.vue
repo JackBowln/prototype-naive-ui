@@ -1,7 +1,6 @@
 <template>
-  <div class="flex">
+  <div class="flex shadow-[0px_0px_10px_rgba(0,0,0,0.1)] rounded-md p-3 mb-3">
     <v-chart class="chart" autoresize :option="option" />
-    
   </div>
 </template>
 <script lang="ts">
@@ -23,124 +22,88 @@
     TitleComponent,
     TooltipComponent,
     LegendComponent,
-    BarChart
+    BarChart,
   ])
 
   export default defineComponent({
     setup() {
       const option = ref({
-       tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'shadow'
-    }
-  },
-  legend: {},
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true
-  },
-  xAxis: [
-    {
-      type: 'category',
-      data: []
-    }
-  ],
-  yAxis: [
-    {
-      type: ''
-    }
-  ],
-  series: [
-    {
-      name: 'Direct',
-      type: 'bar',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [320, 332, 301, 334, 390, 330, 320]
-    },
-    {
-      name: 'Email',
-      type: 'bar',
-      stack: 'Ad',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [120, 132, 101, 134, 90, 230, 210]
-    },
-    {
-      name: 'Union Ads',
-      type: 'bar',
-      stack: 'Ad',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [220, 182, 191, 234, 290, 330, 310]
-    },
-    {
-      name: 'Video Ads',
-      type: 'bar',
-      stack: 'Ad',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [150, 232, 201, 154, 190, 330, 410]
-    },
-    {
-      name: 'Search Engine',
-      type: 'bar',
-      data: [862, 1018, 964, 1026, 1679, 1600, 1570],
-      emphasis: {
-        focus: 'series'
-      },
-      markLine: {
-        lineStyle: {
-          type: 'dashed'
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
         },
-        data: [[{ type: 'min' }, { type: 'max' }]]
-      }
-    },
-    {
-      name: 'Baidu',
-      type: 'bar',
-      barWidth: 5,
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [620, 732, 701, 734, 1090, 1130, 1120]
-    },
-    {
-      name: 'Google',
-      type: 'bar',
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [120, 132, 101, 134, 290, 230, 220]
-    },
-    {
-      name: 'Bing',
-      type: 'bar',
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [60, 72, 71, 74, 190, 130, 110]
-    },
-    {
-      name: 'Others',
-      type: 'bar',
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [62, 82, 91, 84, 109, 110, 120]
-    }
-  ]
+        legend: {},
+        grid: {
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true,
+        },
+        xAxis: [
+          {
+            type: "category",
+            data: [],
+          },
+        ],
+        yAxis: [
+          {
+            type: "",
+          },
+        ],
+        series: [
+          {
+            name: "Aguardando aprovação",
+            type: "bar",
+            stack: "Ad",
+            barWidth: 50,
+            animation: true,
+            emphasis: {
+              focus: "series",
+            },
+            data: [220, 182, 191, 234, 290, 330, 310],
+          },
+          {
+            name: "Aprovação/Manual",
+            type: "bar",
+            stack: "Ad",
+            emphasis: {
+              focus: "series",
+            },
+            data: [150, 232, 201, 154, 190, 330, 410],
+          },
+          {
+            name: "Aprovado/Auto",
+            type: "bar",
+            barWidth: 50,
+            stack: "Ad",
+            emphasis: {
+              focus: "series",
+            },
+            data: [62, 73, 71, 74, 109, 113, 110],
+          },
+          {
+            name: "Descartado/Manual",
+            type: "bar",
+            stack: "Ad",
+            barWidth: 50,
+            emphasis: {
+              focus: "series",
+            },
+            data: [120, 132, 101, 134, 290, 230, 220],
+          },
+          {
+            name: "Descartado/Auto",
+            type: "bar",
+            stack: "Ad",
+            barWidth: 50,
+            emphasis: {
+              focus: "series",
+            },
+            data: [70, 72, 71, 74, 190, 130, 110],
+          },
+        ],
       })
       return {
         option,
@@ -150,8 +113,8 @@
 </script>
 
 <style scoped>
-.chart {
-  height: 200px;
-  width: 100%
-}
+  .chart {
+    height: 200px;
+    width: 100%;
+  }
 </style>

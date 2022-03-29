@@ -1,27 +1,18 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue"
+import App from "./App.vue"
 import "./index.css"
-import router from './router'
-import ECharts from 'vue-echarts'
-import { use } from "echarts/core"
-import {
-  CanvasRenderer
-} from 'echarts/renderers'
-import {
-  BarChart
-} from 'echarts/charts'
-import {   
-  GridComponent,
-  TooltipComponent
-} from 'echarts/components'
+import router from "./router"
+import ECharts from "vue-echarts"
+import naive from "naive-ui"
 
-use([
-  CanvasRenderer,
-  BarChart,
-  GridComponent,
-  TooltipComponent
-])
+import { use } from "echarts/core"
+import { CanvasRenderer } from "echarts/renderers"
+import { BarChart } from "echarts/charts"
+import { GridComponent, TooltipComponent } from "echarts/components"
+
+use([CanvasRenderer, BarChart, GridComponent, TooltipComponent])
 const app = createApp(App)
-app.component('v-chart', ECharts)
+app.component("v-chart", ECharts)
 app.use(router)
-app.mount("#app");
+app.use(naive);
+app.mount("#app")
