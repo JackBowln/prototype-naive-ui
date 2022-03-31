@@ -36,6 +36,11 @@
             <div>320k</div>
             <small>Eventos</small>
           </div>
+          <div class="p-5 px-7">
+            <strong>Coleta Bruta</strong>
+            <div>320k</div>
+            <small>Eventos</small>
+          </div>
         </div>
       </div>
       <div

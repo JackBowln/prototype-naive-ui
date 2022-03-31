@@ -159,9 +159,10 @@
     const value2 = ref(null)
     const handleChange = () => {
         loading.value = true
+
         hideSkeleton()
     }
-    const showDisabled = (isDisabled) => {
+    const showDisabled = (isDisabled: Boolean): Boolean => {
         if (isDisabled && isOnlyActives.value) {
             return false
         }
