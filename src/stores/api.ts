@@ -7,11 +7,7 @@ export type RootState = {
 }
 
 export const useApi = defineStore({
-  id: "launches",
-  // state: () =>
-  //   ({
-  //     countriesData: [],
-  //   } as RootState),
+  id: "api",
   state: () => {
     return {
       countriesData: [] as Countries.RootObject[],

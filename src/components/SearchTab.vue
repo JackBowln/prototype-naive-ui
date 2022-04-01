@@ -35,19 +35,20 @@
                         <td>{{ data.name.common }}</td>
                         <td>
                             {{
-                    new Intl.NumberFormat('pt-PT',  {
-                            style: 'unit',
-                            unit: 'kilometer'
-                        }).format(data.area)
+                                new Intl.NumberFormat("pt-PT", {
+                                    style: "unit",
+                                    unit: "kilometer",
+                                }).format(data.area)
                             }}²
                         </td>
                         <td class="text-center">
-                            {{ (data.population / 1000).toFixed(2) }} mil
+                            {{ (data.population / 1000000).toFixed(2) }} M
                         </td>
                     </tr>
                 </tbody>
             </n-scrollbar>
         </n-table>
+        <n-data-table ref="table" :columns="columns" :data="countries" />
     </div>
 </template>
 <script setup lang="ts">
@@ -60,6 +61,26 @@
     store.fetchCountries()
     const countries = computed(() => store.countriesData)
 
+    const columns = [
+        {
+            title: "Nome",
+            key: "name",
+            sorter: "default",
+        },
+        {
+            title: "Area",
+            key: "area",
+            sorter: "default",
+        },
+        {
+            title: "População",
+            key: "population",
+            sorter: (
+                row1: { population: number },
+                row2: { population: number }
+            ) => row1.population - row2.population,
+        },
+    ]
     const value = ref(null)
     const options = reactive([
         {
@@ -77,83 +98,6 @@
             value,
         }
     }
-    const table = reactive([
-        {
-            no: "1",
-            name: "Jhon One",
-            lastname: "Doe one",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-        {
-            no: "1",
-            name: "Jhon two",
-            lastname: "Doe two",
-        },
-    ])
 </script>
 <style lang="scss" scoped>
     .select--blue {
