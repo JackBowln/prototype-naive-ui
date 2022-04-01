@@ -50,12 +50,28 @@
                 />
                 <div
                     v-for="(item, i) in Card"
-                    class="w-[165px] mx-1 border border-gray-300 rounded-xl h-[186px] flex flex-col gap-2 relative"
+                    class="
+                        w-[165px]
+                        mx-1
+                        border border-gray-300
+                        rounded-xl
+                        h-[186px]
+                        flex flex-col
+                        gap-2
+                        relative
+                    "
                     v-show="showDisabled(item.isDisabled)"
                 >
                     <div
                         v-if="item.isDisabled"
-                        class="absolute w-full h-full bg-gray-300 opacity-60 rounded-xl"
+                        class="
+                            absolute
+                            w-full
+                            h-full
+                            bg-gray-300
+                            opacity-60
+                            rounded-xl
+                        "
                     ></div>
                     <div class="p-2 border-b border-gray-300">
                         <h4 class="font-bold first-letter:uppercase">
@@ -91,7 +107,12 @@
                             </div>
                         </div>
                         <div
-                            class="flex justify-between py-2 border-b border-gray-300"
+                            class="
+                                flex
+                                justify-between
+                                py-2
+                                border-b border-gray-300
+                            "
                         >
                             <div class="flex flex-col">
                                 <strong class="text-sm">{{
@@ -159,9 +180,10 @@
     const value2 = ref(null)
     const handleChange = () => {
         loading.value = true
+
         hideSkeleton()
     }
-    const showDisabled = (isDisabled) => {
+    const showDisabled = (isDisabled: Boolean): Boolean => {
         if (isDisabled && isOnlyActives.value) {
             return false
         }

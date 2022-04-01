@@ -1,4 +1,6 @@
 import { createApp } from "vue"
+import { createPinia } from 'pinia'
+
 import App from "./App.vue"
 import "./index.css"
 import router from "./router"
@@ -16,3 +18,4 @@ app.component("v-chart", ECharts)
 app.use(router)
 app.use(naive);
 app.mount("#app")
+app.use(createPinia())
